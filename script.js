@@ -1,6 +1,6 @@
 // 1) Google Apps Script 배포 URL을 여기에 넣으세요.
 // 아직 연결 전이면 빈 문자열로 두어도 퀴즈는 작동합니다.
-const GOOGLE_SCRIPT_URL = "";
+const GOOGLE_SCRIPT_URL = "https://script.google.com/macros/s/AKfycbyhGtuXVfC_RNGRZp2tBfWLJsJtud-hFw14_7m1QZY_ygk5Ksx4E2KWJlBNDKPcdmSZIA/exec";
 
 // 2) OX 문제 10개
 // answer: "O" 또는 "X"
