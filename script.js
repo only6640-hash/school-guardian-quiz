@@ -1,5 +1,4 @@
-// 1) Google Apps Script 배포 URL을 여기에 넣으세요.
-// 아직 연결 전이면 빈 문자열로 두어도 퀴즈는 작동합니다.
+// 1) Google Apps Script 배포 URL
 const GOOGLE_SCRIPT_URL = "https://script.google.com/macros/s/AKfycbyhGtuXVfC_RNGRZp2tBfWLJsJtud-hFw14_7m1QZY_ygk5Ksx4E2KWJlBNDKPcdmSZIA/exec";
 
 // 2) OX 문제 10개
@@ -93,7 +92,13 @@ function startQuiz() {
     studentName: getValue("studentName")
   };
 
-  if (!userInfo.school || !userInfo.grade || !userInfo.classNo || !userInfo.studentNo || !userInfo.studentName) {
+  if (
+    !userInfo.school ||
+    !userInfo.grade ||
+    !userInfo.classNo ||
+    !userInfo.studentNo ||
+    !userInfo.studentName
+  ) {
     alert("학교, 학년, 반, 번호, 이름을 모두 입력해 주세요.");
     return;
   }
@@ -111,6 +116,7 @@ function startQuiz() {
 
 function renderQuestion() {
   const q = questions[currentIndex];
+
   currentWrongCount = 0;
   isMoving = false;
 
@@ -161,9 +167,11 @@ function chooseAnswer(choice) {
     attemptType: "passed"
   });
 
-  feedback.textContent = currentWrongCount === 0
-    ? "정답입니다! 다음 문제로 넘어갑니다."
-    : `정답입니다! ${currentWrongCount}번 다시 생각한 뒤 맞혔습니다.`;
+  feedback.textContent =
+    currentWrongCount === 0
+      ? "정답입니다! 다음 문제로 넘어갑니다."
+      : `정답입니다! ${currentWrongCount}번 다시 생각한 뒤 맞혔습니다.`;
+
   feedback.className = "feedback correct";
 
   setTimeout(() => {
@@ -180,28 +188,25 @@ function chooseAnswer(choice) {
 async function finishQuiz() {
   document.getElementById("progressFill").style.width = "100%";
 
-  // 이 방식은 모든 문제를 맞혀야 끝까지 갈 수 있으므로, 완료하면 인증입니다.
-  const certified = true;
-
   const resultData = {
     submittedAt: new Date().toLocaleString("ko-KR"),
-    ...userInfo,
-    score,
+    school: userInfo.school,
+    grade: userInfo.grade,
+    classNo: userInfo.classNo,
+    studentNo: userInfo.studentNo,
+    studentName: userInfo.studentName,
+    score: score,
     total: questions.length,
     certified: "인증",
-    totalWrongCount,
+    totalWrongCount: totalWrongCount,
     answers: JSON.stringify(answers)
   };
 
-  // Google Apps Script URL이 설정되어 있을 때만 저장
   if (GOOGLE_SCRIPT_URL) {
     try {
       await fetch(GOOGLE_SCRIPT_URL, {
         method: "POST",
         mode: "no-cors",
-        headers: {
-          "Content-Type": "application/json"
-        },
         body: JSON.stringify(resultData)
       });
     } catch (error) {
