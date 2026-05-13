@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>학교폭력 예방 안전 지킴이 OX 퀴즈</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <main class="app">
+    <section id="introPage" class="card page active">
+      <img class="hero" src="images/main_banner.svg" alt="학교폭력 예방 안전 지킴이 퀴즈 배너" />
+      <div class="badge">학교폭력 예방 프로그램</div>
+      <h1>학교폭력 예방<br />안전 지킴이 OX 퀴즈</h1>
+      <p class="lead">
+        친구를 지키는 작은 선택이 우리 반을 안전하게 만듭니다.
+        틀린 문제는 맞힐 때까지 다시 풀고, 10문제를 모두 통과하면 안전 지킴이 인증을 받을 수 있습니다.
+      </p>
+      <button class="primary" onclick="goInfo()">시작하기</button>
+    </section>
+
+    <section id="infoPage" class="card page">
+      <h2>참여 정보 입력</h2>
+      <p class="notice">
+        아래 정보는 수업 참여 확인과 인증 기록을 위해서만 사용됩니다.
+      </p>
+
+      <div class="form-grid">
+        <label>학교명
+          <input id="school" type="text" placeholder="예: ○○초등학교" autocomplete="off" />
+        </label>
+        <label>학년
+          <input id="grade" type="number" min="1" max="9" placeholder="예: 5" />
+        </label>
+        <label>반
+          <input id="classNo" type="number" min="1" max="30" placeholder="예: 2" />
+        </label>
+        <label>번호
+          <input id="studentNo" type="number" min="1" max="99" placeholder="예: 13" />
+        </label>
+        <label class="full">이름
+          <input id="studentName" type="text" placeholder="예: 김안전" autocomplete="off" />
+        </label>
+      </div>
+
+      <button class="primary" onclick="startQuiz()">퀴즈 시작</button>
+      <button class="ghost" onclick="goIntro()">처음으로</button>
+    </section>
+
+    <section id="quizPage" class="card page">
+      <div class="top-row">
+        <span id="progressText" class="progress-text">문제 1 / 10</span>
+        <span id="scoreHint" class="score-hint">전부 맞히면 인증!</span>
+      </div>
+
+      <div class="progress-bar">
+        <div id="progressFill"></div>
+      </div>
+
+      <img id="questionImage" class="question-image" src="images/q1.svg" alt="문제 상황 이미지" />
+      <h2 id="questionText" class="question-text"></h2>
+
+      <div class="ox-area">
+        <button class="ox-button" onclick="chooseAnswer('O')" aria-label="O 선택">
+          <img src="images/o_button.svg" alt="O" />
+        </button>
+        <button class="ox-button" onclick="chooseAnswer('X')" aria-label="X 선택">
+          <img src="images/x_button.svg" alt="X" />
+        </button>
+      </div>
+
+      <p id="feedback" class="feedback"></p>
+    </section>
+
+    <section id="resultPage" class="card page">
+      <div id="resultBox"></div>
+      <button class="primary" onclick="restart()">다시 풀기</button>
+      <button class="ghost" onclick="goIntro()">처음으로</button>
+    </section>
+  </main>
+
+  <script src="script.js"></script>
+</body>
+</html>

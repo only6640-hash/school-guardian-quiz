@@ -1,0 +1,16 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 600">
+  <defs>
+    <radialGradient id="g" cx="35%" cy="30%" r="70%">
+      <stop offset="0" stop-color="#fff8b8"/>
+      <stop offset=".35" stop-color="#6ee78f"/>
+      <stop offset="1" stop-color="#0cae55"/>
+    </radialGradient>
+    <filter id="shadow">
+      <feDropShadow dx="0" dy="18" stdDeviation="16" flood-color="#006d35" flood-opacity=".28"/>
+    </filter>
+  </defs>
+  <rect width="600" height="600" rx="80" fill="#f4fff8"/>
+  <circle cx="300" cy="300" r="190" fill="none" stroke="url(#g)" stroke-width="92" filter="url(#shadow)"/>
+  <path d="M180 150 C230 100 360 90 420 145" fill="none" stroke="#fff" stroke-width="22" stroke-linecap="round" opacity=".8"/>
+  <text x="300" y="535" text-anchor="middle" font-family="Arial, sans-serif" font-size="48" font-weight="900" fill="#0b8e48">맞아요</text>
+</svg>

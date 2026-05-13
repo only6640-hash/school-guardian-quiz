@@ -1,0 +1,18 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 600">
+  <defs>
+    <linearGradient id="xg" x1="0" x2="1" y1="0" y2="1">
+      <stop offset="0" stop-color="#ff8c8c"/>
+      <stop offset=".48" stop-color="#ff2f2f"/>
+      <stop offset="1" stop-color="#bf1111"/>
+    </linearGradient>
+    <filter id="shadow">
+      <feDropShadow dx="0" dy="18" stdDeviation="16" flood-color="#8e0000" flood-opacity=".28"/>
+    </filter>
+  </defs>
+  <rect width="600" height="600" rx="80" fill="#fff6f6"/>
+  <g filter="url(#shadow)">
+    <path d="M185 160 L300 275 L415 160 Q442 133 469 160 Q496 187 469 214 L354 329 L469 444 Q496 471 469 498 Q442 525 415 498 L300 383 L185 498 Q158 525 131 498 Q104 471 131 444 L246 329 L131 214 Q104 187 131 160 Q158 133 185 160Z" fill="url(#xg)"/>
+  </g>
+  <path d="M175 157 C210 130 270 203 306 237" fill="none" stroke="#fff" stroke-width="20" stroke-linecap="round" opacity=".62"/>
+  <text x="300" y="535" text-anchor="middle" font-family="Arial, sans-serif" font-size="48" font-weight="900" fill="#d52020">아니에요</text>
+</svg>
