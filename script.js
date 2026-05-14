@@ -64,11 +64,14 @@ let currentWrongCount = 0;
 let totalWrongCount = 0;
 let isMoving = false;
 
-// 저장 요청 이미지가 사라지지 않도록 보관
+// 저장 요청용 이미지가 사라지지 않도록 보관
 window.__savePixels = [];
 
 function showPage(id) {
-  document.querySelectorAll(".page").forEach(page => page.classList.remove("active"));
+  document.querySelectorAll(".page").forEach(page => {
+    page.classList.remove("active");
+  });
+
   document.getElementById(id).classList.add("active");
   window.scrollTo({ top: 0, behavior: "smooth" });
 }
@@ -122,11 +125,18 @@ function renderQuestion() {
   currentWrongCount = 0;
   isMoving = false;
 
-  document.getElementById("progressText").textContent = `문제 ${currentIndex + 1} / ${questions.length}`;
-  document.getElementById("progressFill").style.width = `${(currentIndex / questions.length) * 100}%`;
+  document.getElementById("progressText").textContent =
+    `문제 ${currentIndex + 1} / ${questions.length}`;
+
+  document.getElementById("progressFill").style.width =
+    `${(currentIndex / questions.length) * 100}%`;
+
   document.getElementById("questionText").textContent = q.text;
   document.getElementById("questionImage").src = q.image;
-  document.getElementById("feedback").textContent = "정답을 고르면 다음 문제로 넘어갑니다.";
+
+  document.getElementById("feedback").textContent =
+    "정답을 고르면 다음 문제로 넘어갑니다.";
+
   document.getElementById("feedback").className = "feedback";
 }
 
@@ -141,7 +151,9 @@ function chooseAnswer(choice) {
     currentWrongCount += 1;
     totalWrongCount += 1;
 
-    feedback.textContent = "아쉬워요. 이 문제는 다시 생각해서 맞힐 때까지 풀어보세요!";
+    feedback.textContent =
+      "아쉬워요. 이 문제는 다시 생각해서 맞힐 때까지 풀어보세요!";
+
     feedback.className = "feedback wrong";
 
     answers.push({
@@ -188,9 +200,23 @@ function chooseAnswer(choice) {
 function finishQuiz() {
   document.getElementById("progressFill").style.width = "100%";
 
-  const answerSummary = answers.map(a => {
-    return `${a.questionNo}:${a.selected}:${a.correct ? "정답" : "오답"}:${a.wrongBeforeCorrect ?? ""}`;
-  }).join("|");
+  // 문제별 틀린 횟수 계산
+  const wrongCounts = Array(questions.length).fill(0);
+
+  answers.forEach(a => {
+    if (!a.correct) {
+      wrongCounts[a.questionNo - 1] += 1;
+    }
+  });
+
+  // 예: "3번 1회, 8번 1회"
+  const wrongSummary =
+    wrongCounts
+      .map((count, index) => {
+        return count > 0 ? `${index + 1}번 ${count}회` : null;
+      })
+      .filter(Boolean)
+      .join(", ") || "없음";
 
   const resultData = {
     school: userInfo.school,
@@ -202,7 +228,17 @@ function finishQuiz() {
     total: questions.length,
     certified: "인증",
     totalWrongCount: totalWrongCount,
-    answers: answerSummary
+    wrongSummary: wrongSummary,
+    qWrong1: wrongCounts[0],
+    qWrong2: wrongCounts[1],
+    qWrong3: wrongCounts[2],
+    qWrong4: wrongCounts[3],
+    qWrong5: wrongCounts[4],
+    qWrong6: wrongCounts[5],
+    qWrong7: wrongCounts[6],
+    qWrong8: wrongCounts[7],
+    qWrong9: wrongCounts[8],
+    qWrong10: wrongCounts[9]
   };
 
   saveToGoogleSheetByGet(resultData);
@@ -216,16 +252,11 @@ function saveToGoogleSheetByGet(data) {
 
   const params = new URLSearchParams();
 
-  params.append("school", data.school);
-  params.append("grade", data.grade);
-  params.append("classNo", data.classNo);
-  params.append("studentNo", data.studentNo);
-  params.append("studentName", data.studentName);
-  params.append("score", data.score);
-  params.append("total", data.total);
-  params.append("certified", data.certified);
-  params.append("totalWrongCount", data.totalWrongCount);
-  params.append("answers", data.answers);
+  Object.keys(data).forEach(key => {
+    params.append(key, data[key]);
+  });
+
+  // 캐시 방지용
   params.append("_t", Date.now());
 
   const url = GOOGLE_SCRIPT_URL + "?" + params.toString();
@@ -246,7 +277,9 @@ function renderResult() {
     <div class="certificate">
       <div class="emoji">🛡️</div>
       <h2>축하합니다!</h2>
-      <p class="small">${userInfo.school} ${userInfo.grade}학년 ${userInfo.classNo}반 ${userInfo.studentNo}번</p>
+      <p class="small">
+        ${userInfo.school} ${userInfo.grade}학년 ${userInfo.classNo}반 ${userInfo.studentNo}번
+      </p>
       <div class="name">${userInfo.studentName}</div>
       <p>
         학교폭력 예방 OX 퀴즈 10문제를 모두 통과하여<br />
