@@ -1,6 +1,6 @@
 // GitHub 웹페이지용 script.js
 // Google Apps Script 웹 앱 URL
-const GOOGLE_SCRIPT_URL = "https://script.google.com/macros/s/AKfycbyhGtuXVfC_RNGRZp2tBfWLJsJtud-hFw14_7m1QZY_ygk5Ksx4E2KWJlBNDKPcdmSZIA/exec";
+const GOOGLE_SCRIPT_URL = "https://script.google.com/macros/s/AKfycbzE6x_IZcqya7H4qrS75UqkkKTNmgdUNtQ6FiePZLtAyLCyA2HiUyrxwGEIcwZn2bCFgA/exec";
 
 // OX 문제 10개
 const questions = [
@@ -64,8 +64,9 @@ let currentWrongCount = 0;
 let totalWrongCount = 0;
 let isMoving = false;
 
-// 저장 요청용 이미지가 사라지지 않도록 보관
-window.__savePixels = [];
+// 숨은 iframe과 form이 바로 사라지지 않도록 보관
+window.__hiddenSaveFrames = [];
+window.__hiddenSaveForms = [];
 
 function showPage(id) {
   document.querySelectorAll(".page").forEach(page => {
@@ -200,7 +201,6 @@ function chooseAnswer(choice) {
 function finishQuiz() {
   document.getElementById("progressFill").style.width = "100%";
 
-  // 문제별 틀린 횟수 계산
   const wrongCounts = Array(questions.length).fill(0);
 
   answers.forEach(a => {
@@ -209,7 +209,6 @@ function finishQuiz() {
     }
   });
 
-  // 예: "3번 1회, 8번 1회"
   const wrongSummary =
     wrongCounts
       .map((count, index) => {
@@ -238,36 +237,58 @@ function finishQuiz() {
     qWrong7: wrongCounts[6],
     qWrong8: wrongCounts[7],
     qWrong9: wrongCounts[8],
-    qWrong10: wrongCounts[9]
+    qWrong10: wrongCounts[9],
+    savedAtClient: new Date().toLocaleString("ko-KR")
   };
 
-  saveToGoogleSheetByGet(resultData);
+  saveToGoogleSheetByPost(resultData);
 
   renderResult();
   showPage("resultPage");
 }
 
-function saveToGoogleSheetByGet(data) {
-  if (!GOOGLE_SCRIPT_URL) return;
+function saveToGoogleSheetByPost(data) {
+  if (!GOOGLE_SCRIPT_URL) {
+    alert("저장 주소가 비어 있습니다.");
+    return;
+  }
 
-  const params = new URLSearchParams();
+  const iframeName = "hidden_iframe_" + Date.now();
+
+  const iframe = document.createElement("iframe");
+  iframe.name = iframeName;
+  iframe.style.display = "none";
+  document.body.appendChild(iframe);
+
+  const form = document.createElement("form");
+  form.method = "POST";
+  form.action = GOOGLE_SCRIPT_URL;
+  form.target = iframeName;
+  form.style.display = "none";
 
   Object.keys(data).forEach(key => {
-    params.append(key, data[key]);
+    const input = document.createElement("input");
+    input.type = "hidden";
+    input.name = key;
+    input.value = data[key];
+    form.appendChild(input);
   });
 
-  // 캐시 방지용
-  params.append("_t", Date.now());
+  document.body.appendChild(form);
 
-  const url = GOOGLE_SCRIPT_URL + "?" + params.toString();
+  window.__hiddenSaveFrames.push(iframe);
+  window.__hiddenSaveForms.push(form);
 
-  const img = document.createElement("img");
-  img.src = url;
-  img.style.display = "none";
-  img.alt = "";
+  form.submit();
 
-  window.__savePixels.push(img);
-  document.body.appendChild(img);
+  setTimeout(() => {
+    try {
+      form.remove();
+      iframe.remove();
+    } catch (error) {
+      console.warn("숨은 저장 폼 정리 중 오류", error);
+    }
+  }, 15000);
 }
 
 function renderResult() {
