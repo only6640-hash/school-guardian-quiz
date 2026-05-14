@@ -64,9 +64,8 @@ let currentWrongCount = 0;
 let totalWrongCount = 0;
 let isMoving = false;
 
-// 숨은 iframe과 form이 바로 사라지지 않도록 보관
-window.__hiddenSaveFrames = [];
-window.__hiddenSaveForms = [];
+// 저장 요청 이미지가 바로 사라지지 않도록 보관
+window.__savePixels = [];
 
 function showPage(id) {
   document.querySelectorAll(".page").forEach(page => {
@@ -241,54 +240,36 @@ function finishQuiz() {
     savedAtClient: new Date().toLocaleString("ko-KR")
   };
 
-  saveToGoogleSheetByPost(resultData);
+  saveToGoogleSheetByGet(resultData);
 
   renderResult();
   showPage("resultPage");
 }
 
-function saveToGoogleSheetByPost(data) {
+function saveToGoogleSheetByGet(data) {
   if (!GOOGLE_SCRIPT_URL) {
     alert("저장 주소가 비어 있습니다.");
     return;
   }
 
-  const iframeName = "hidden_iframe_" + Date.now();
-
-  const iframe = document.createElement("iframe");
-  iframe.name = iframeName;
-  iframe.style.display = "none";
-  document.body.appendChild(iframe);
-
-  const form = document.createElement("form");
-  form.method = "POST";
-  form.action = GOOGLE_SCRIPT_URL;
-  form.target = iframeName;
-  form.style.display = "none";
+  const params = new URLSearchParams();
 
   Object.keys(data).forEach(key => {
-    const input = document.createElement("input");
-    input.type = "hidden";
-    input.name = key;
-    input.value = data[key];
-    form.appendChild(input);
+    params.append(key, data[key]);
   });
 
-  document.body.appendChild(form);
+  // 매번 새 요청으로 인식되게 하는 캐시 방지값
+  params.append("_t", Date.now());
 
-  window.__hiddenSaveFrames.push(iframe);
-  window.__hiddenSaveForms.push(form);
+  const url = GOOGLE_SCRIPT_URL + "?" + params.toString();
 
-  form.submit();
+  const img = document.createElement("img");
+  img.src = url;
+  img.style.display = "none";
+  img.alt = "";
 
-  setTimeout(() => {
-    try {
-      form.remove();
-      iframe.remove();
-    } catch (error) {
-      console.warn("숨은 저장 폼 정리 중 오류", error);
-    }
-  }, 15000);
+  window.__savePixels.push(img);
+  document.body.appendChild(img);
 }
 
 function renderResult() {
