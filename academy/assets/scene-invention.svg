@@ -1,0 +1,13 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 420">
+<rect width="640" height="420" rx="30" fill="#fff8ec"/>
+<circle cx="330" cy="106" r="68" fill="#fff1bf"/><path d="M315 144h32l6-20c26-10 42-34 42-61 0-39-31-70-70-70s-70 31-70 70c0 27 16 51 42 61z" fill="#ffc43d"/><path d="M315 154h36M316 169h34" stroke="#203a5b" stroke-width="9" stroke-linecap="round"/>
+<g transform="translate(75 208)">
+<rect x="0" y="65" width="490" height="30" rx="12" fill="#7b5639"/>
+<circle cx="85" cy="50" r="44" fill="#ffd3b4"/><path d="M46 50c3-42 25-64 53-64 33 0 58 27 55 68-17-16-38-25-62-27-12 11-26 19-46 23z" fill="#2a313a"/>
+<path d="M38 99c36-31 91-31 126 0l12 92H27z" fill="#ff9d1e"/>
+<rect x="226" y="18" width="138" height="76" rx="14" fill="#e8f2ff" stroke="#1d64c8" stroke-width="7"/>
+<circle cx="252" cy="108" r="28" fill="#25384f"/><circle cx="340" cy="108" r="28" fill="#25384f"/>
+<rect x="254" y="42" width="40" height="36" rx="6" fill="#36b6a6"/><rect x="305" y="35" width="38" height="43" rx="6" fill="#f2c348"/>
+<path d="M226 64h-30l-18-28M364 61h46l22-34" stroke="#25384f" stroke-width="8" fill="none" stroke-linecap="round"/>
+</g>
+</svg>
