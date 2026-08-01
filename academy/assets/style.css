@@ -840,3 +840,1098 @@ button{font:inherit}
   .location-actions .btn{width:100%}
   .map-wrap,.map-wrap iframe{min-height:310px}
 }
+
+
+/* ===== v9 static full achievement list ===== */
+.honors-hero{
+  padding:28px 0 18px;
+}
+.honors-hero-card{
+  position:relative;
+  overflow:hidden;
+  border:1px solid #c89a3d;
+  border-radius:30px;
+  background:
+    radial-gradient(circle at 83% 16%,rgba(255,211,101,.18),transparent 23%),
+    linear-gradient(135deg,#061936 0%,#0b326f 56%,#071b3b 100%);
+  box-shadow:0 22px 58px rgba(3,23,53,.24);
+  color:#fff;
+}
+.honors-hero-card::before{
+  content:"";
+  position:absolute;
+  inset:18px;
+  pointer-events:none;
+  border:1px solid rgba(235,195,99,.28);
+  border-radius:21px;
+}
+.honors-hero-inner{
+  position:relative;
+  z-index:1;
+  display:grid;
+  grid-template-columns:1fr .52fr;
+  align-items:center;
+  gap:32px;
+  min-height:400px;
+  padding:48px 46px;
+}
+.honors-copy .section-kicker{
+  color:#f2cc76;
+  letter-spacing:.14em;
+}
+.honors-copy h1{
+  margin:0;
+  color:#fff;
+  font-size:clamp(2.8rem,5vw,4.8rem);
+  line-height:1.1;
+  letter-spacing:-.07em;
+}
+.honors-copy h1 em{
+  color:#f2cb70;
+  font-style:normal;
+}
+.honors-copy p{
+  max-width:700px;
+  margin:20px 0 0;
+  color:rgba(255,255,255,.78);
+  font-size:1.04rem;
+}
+.honors-symbol{
+  display:grid;
+  place-items:center;
+}
+.honors-medal{
+  width:220px;
+  height:220px;
+  display:grid;
+  place-items:center;
+  border:2px solid #e7c15e;
+  border-radius:50%;
+  box-shadow:
+    inset 0 0 0 11px rgba(239,199,99,.07),
+    0 0 50px rgba(232,190,80,.14);
+  text-align:center;
+}
+.honors-medal .crown{
+  display:block;
+  color:#f2ca6a;
+  font-size:4.6rem;
+  line-height:1;
+}
+.honors-medal strong{
+  display:block;
+  margin-top:8px;
+  color:#fff;
+  letter-spacing:.08em;
+}
+.honors-medal small{
+  display:block;
+  margin-top:5px;
+  color:#eac66e;
+  letter-spacing:.16em;
+}
+
+.honors-summary{
+  display:grid;
+  grid-template-columns:repeat(5,1fr);
+  gap:14px;
+  margin-top:18px;
+}
+.honors-summary-item{
+  padding:17px 12px;
+  border:1px solid #d8e2ee;
+  border-radius:18px;
+  background:#fff;
+  text-align:center;
+  box-shadow:0 9px 24px rgba(13,52,113,.06);
+}
+.honors-summary-item span{
+  display:grid;
+  place-items:center;
+  width:48px;
+  height:48px;
+  margin:0 auto;
+  border-radius:50%;
+  background:linear-gradient(145deg,#fff7dc,#f0d17e);
+  font-size:1.4rem;
+}
+.honors-summary-item strong{
+  display:block;
+  margin-top:8px;
+  color:#082a5a;
+}
+.honors-summary-item small{
+  display:block;
+  margin-top:3px;
+  color:#6b7c91;
+  font-size:.78rem;
+}
+
+.honors-list-section{
+  padding:0 0 22px;
+}
+.honors-list-panel{
+  padding:32px 28px 38px;
+  border:1px solid #d8e2ee;
+  border-radius:28px;
+  background:#fff;
+  box-shadow:0 16px 42px rgba(12,52,114,.09);
+}
+.honors-intro{
+  max-width:850px;
+  margin:0 auto 30px;
+  text-align:center;
+}
+.honors-intro h2{
+  margin:0;
+  color:#082a5a;
+  font-size:clamp(1.9rem,3.3vw,2.8rem);
+  letter-spacing:-.05em;
+}
+.honors-intro p{
+  margin:12px 0 0;
+  color:#65768b;
+}
+.honors-year{
+  margin-top:42px;
+}
+.honors-year:first-of-type{
+  margin-top:0;
+}
+.honors-year-title{
+  display:flex;
+  align-items:center;
+  gap:15px;
+  margin-bottom:21px;
+}
+.honors-year-title::before,
+.honors-year-title::after{
+  content:"";
+  flex:1;
+  height:1px;
+  background:linear-gradient(90deg,transparent,#c29a49,transparent);
+}
+.honors-year-title span{
+  min-width:118px;
+  padding:9px 20px;
+  border:1px solid #bb8d35;
+  border-radius:999px;
+  background:linear-gradient(145deg,#fff7db,#e5bf5f);
+  color:#082a5a;
+  text-align:center;
+  font-size:1.35rem;
+  font-weight:950;
+  box-shadow:0 7px 18px rgba(132,91,17,.14);
+}
+.honors-records{
+  display:grid;
+  gap:18px;
+}
+.honors-record{
+  position:relative;
+  overflow:hidden;
+  border:1px solid #c79d4a;
+  border-radius:22px;
+  background:
+    linear-gradient(135deg,rgba(245,218,150,.15),transparent 28%),
+    #fffdfa;
+  box-shadow:0 10px 27px rgba(12,52,114,.07);
+}
+.honors-record::before{
+  content:"";
+  position:absolute;
+  inset:8px;
+  pointer-events:none;
+  border:1px solid rgba(190,145,54,.38);
+  border-radius:16px;
+}
+.honors-record::after{
+  content:"";
+  position:absolute;
+  top:0;
+  right:0;
+  width:78px;
+  height:78px;
+  background:linear-gradient(135deg,transparent 48%,rgba(221,180,87,.48) 49%,#f5d483 67%,#c79330 100%);
+}
+.honors-record-inner{
+  position:relative;
+  z-index:1;
+  padding:24px 26px 25px;
+}
+.honors-record-header{
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:14px;
+  padding-right:45px;
+}
+.honors-category{
+  display:inline-flex;
+  align-items:center;
+  gap:7px;
+  padding:6px 11px;
+  border-radius:999px;
+  background:#0a3069;
+  color:#fff;
+  font-size:.78rem;
+  font-weight:900;
+}
+.honors-record h3{
+  margin:20px 0 0;
+  color:#082a5a;
+  font-size:1.3rem;
+  line-height:1.38;
+  letter-spacing:-.035em;
+}
+.honors-group{
+  margin-top:18px;
+  padding:16px 18px;
+  border:1px solid #e7d5ad;
+  border-radius:16px;
+  background:rgba(255,255,255,.75);
+}
+.honors-group-title{
+  display:flex;
+  align-items:center;
+  gap:10px;
+  margin:0;
+  color:#a26600;
+  font-size:1.08rem;
+  font-weight:950;
+}
+.honors-group-title::before{
+  content:"★";
+  color:#c7993e;
+  font-size:.85rem;
+}
+.honors-people{
+  display:grid;
+  gap:7px;
+  margin:12px 0 0;
+  padding:0;
+  list-style:none;
+}
+.honors-people li{
+  display:flex;
+  align-items:flex-start;
+  gap:9px;
+  color:#334b65;
+  font-size:.94rem;
+  line-height:1.55;
+}
+.honors-people li::before{
+  content:"◆";
+  margin-top:.16em;
+  color:#c29436;
+  font-size:.65rem;
+}
+.honors-privacy{
+  margin:28px 0 0;
+  padding:15px 17px;
+  border-radius:16px;
+  background:#fff7e7;
+  color:#74551e;
+  font-size:.84rem;
+}
+.home-achievement-link{
+  display:flex;
+  justify-content:center;
+  margin-top:20px;
+}
+
+@media(max-width:1040px){
+  .honors-summary{grid-template-columns:repeat(3,1fr)}
+}
+@media(max-width:820px){
+  .honors-hero-inner{grid-template-columns:1fr;padding:38px 28px}
+  .honors-symbol{display:none}
+}
+@media(max-width:720px){
+  .honors-hero{padding-top:14px}
+  .honors-hero-card,
+  .honors-list-panel{border-radius:24px}
+  .honors-hero-inner{padding:28px 18px}
+  .honors-copy h1{font-size:2.45rem}
+  .honors-summary{grid-template-columns:1fr 1fr}
+  .honors-list-panel{padding:23px 14px 28px}
+  .honors-year{margin-top:34px}
+  .honors-record-inner{padding:22px 17px}
+  .honors-record-header{padding-right:36px}
+  .honors-record h3{font-size:1.12rem}
+  .honors-group{padding:14px}
+}
+
+
+/* ===== v10 achievement redesign ===== */
+body:has(.honors-hero){
+  background:linear-gradient(180deg,#f7f3ea 0%, #fdfcf9 100%);
+}
+.honors-hero{
+  padding:30px 0 18px;
+}
+.honors-hero-card{
+  position:relative;
+  overflow:hidden;
+  border-radius:34px;
+  background:
+    radial-gradient(circle at 15% 10%, rgba(255,221,130,.18), transparent 23%),
+    radial-gradient(circle at 88% 22%, rgba(255,221,130,.14), transparent 20%),
+    linear-gradient(135deg,#04142e 0%,#0a2b61 48%,#071733 100%);
+  border:1px solid #c79a41;
+  box-shadow:0 24px 70px rgba(7,24,51,.26);
+  color:#fff;
+}
+.honors-hero-card::before{
+  content:"";
+  position:absolute;
+  inset:18px;
+  border:1px solid rgba(236,201,111,.32);
+  border-radius:24px;
+  pointer-events:none;
+}
+.honors-hero-inner{
+  position:relative;
+  z-index:1;
+  display:grid;
+  grid-template-columns:1fr 320px;
+  align-items:center;
+  gap:28px;
+  min-height:410px;
+  padding:52px 54px;
+}
+.honors-copy{
+  text-align:center;
+}
+.honors-copy .section-kicker{
+  color:#efcb77;
+  letter-spacing:.2em;
+  justify-content:center;
+}
+.honors-copy h1{
+  margin:0;
+  color:#fff;
+  font-size:clamp(3rem,5.3vw,5rem);
+  line-height:1.06;
+  letter-spacing:-.07em;
+}
+.honors-copy h1 em{
+  font-style:normal;
+  color:#f4cf76;
+}
+.honors-copy p{
+  max-width:760px;
+  margin:18px auto 0;
+  color:rgba(255,255,255,.82);
+  font-size:1.08rem;
+  line-height:1.7;
+}
+.honors-symbol{
+  display:grid;
+  place-items:center;
+}
+.honors-medal{
+  width:250px;
+  height:250px;
+  display:grid;
+  place-items:center;
+  border-radius:50%;
+  background:radial-gradient(circle at 30% 30%, rgba(255,255,255,.08), rgba(255,255,255,0) 50%);
+  border:2px solid #ebc56a;
+  box-shadow:inset 0 0 0 12px rgba(235,197,106,.07),0 0 55px rgba(235,197,106,.14);
+  text-align:center;
+}
+.honors-medal .crown{
+  display:block;
+  color:#f1cc73;
+  font-size:5rem;
+  line-height:1;
+}
+.honors-medal strong{
+  display:block;
+  margin-top:12px;
+  color:#fff;
+  font-size:1.3rem;
+  letter-spacing:.08em;
+}
+.honors-medal small{
+  display:block;
+  margin-top:6px;
+  color:#edca72;
+  letter-spacing:.18em;
+}
+.honors-summary{
+  display:grid;
+  grid-template-columns:repeat(5,1fr);
+  gap:16px;
+  margin-top:20px;
+}
+.honors-summary-item{
+  padding:18px 14px;
+  border:1px solid #dfd7c8;
+  border-radius:22px;
+  background:linear-gradient(180deg,#ffffff 0%,#fcf8ef 100%);
+  text-align:center;
+  box-shadow:0 12px 28px rgba(12,52,114,.06);
+}
+.honors-summary-item span{
+  display:grid;
+  place-items:center;
+  width:52px;
+  height:52px;
+  margin:0 auto;
+  border-radius:50%;
+  background:linear-gradient(145deg,#fff4d3,#ebc86c);
+  font-size:1.5rem;
+}
+.honors-summary-item strong{
+  display:block;
+  margin-top:10px;
+  color:#07295b;
+  font-size:1.02rem;
+}
+.honors-summary-item small{
+  display:block;
+  margin-top:4px;
+  color:#6f7d91;
+  font-size:.8rem;
+}
+.honors-list-section{
+  padding:0 0 24px;
+}
+.honors-list-panel{
+  padding:36px 30px 42px;
+  border-radius:30px;
+  border:1px solid #e1d7c7;
+  background:linear-gradient(180deg,#fffdf9 0%,#fffaf0 100%);
+  box-shadow:0 20px 48px rgba(12,52,114,.08);
+}
+.honors-intro{
+  max-width:900px;
+  margin:0 auto 34px;
+  text-align:center;
+}
+.honors-intro h2{
+  margin:0;
+  color:#07295b;
+  font-size:clamp(2rem,3.5vw,3rem);
+  letter-spacing:-.05em;
+}
+.honors-intro p{
+  margin:12px 0 0;
+  color:#65758b;
+  font-size:1rem;
+  line-height:1.7;
+}
+.honors-year{
+  margin-top:48px;
+}
+.honors-year:first-of-type{
+  margin-top:0;
+}
+.honors-year-title{
+  display:flex;
+  align-items:center;
+  gap:16px;
+  margin-bottom:22px;
+}
+.honors-year-title::before,
+.honors-year-title::after{
+  content:"";
+  flex:1;
+  height:1px;
+  background:linear-gradient(90deg,transparent,#c49b49,transparent);
+}
+.honors-year-title span{
+  min-width:130px;
+  padding:11px 22px;
+  border:1px solid #bc8f38;
+  border-radius:999px;
+  background:linear-gradient(145deg,#fff7dc,#e4bf5f);
+  color:#082a5a;
+  text-align:center;
+  font-size:1.45rem;
+  font-weight:950;
+  box-shadow:0 8px 18px rgba(132,91,17,.14);
+}
+.honors-records{
+  display:grid;
+  gap:24px;
+}
+.honors-record{
+  position:relative;
+  overflow:hidden;
+  border-radius:28px;
+  border:1px solid #c9a056;
+  background:
+    linear-gradient(180deg,rgba(255,255,255,.95) 0%, rgba(255,249,235,.95) 100%);
+  box-shadow:0 15px 36px rgba(12,52,114,.08);
+}
+.honors-record::before{
+  content:"";
+  position:absolute;
+  inset:12px;
+  border:1px solid rgba(196,151,66,.4);
+  border-radius:20px;
+  pointer-events:none;
+}
+.honors-record::after{
+  content:"";
+  position:absolute;
+  top:0;
+  right:0;
+  width:92px;
+  height:92px;
+  background:linear-gradient(135deg,transparent 50%, rgba(241,208,123,.72) 51%, #e1bc64 76%, #bf8e2e 100%);
+}
+.honors-record-inner{
+  position:relative;
+  z-index:1;
+  padding:28px 28px 30px;
+}
+.honors-record-header{
+  display:flex;
+  justify-content:center;
+}
+.honors-category{
+  display:inline-flex;
+  align-items:center;
+  gap:8px;
+  padding:8px 16px;
+  border-radius:999px;
+  background:#0a3779;
+  color:#fff;
+  font-size:.87rem;
+  font-weight:900;
+  box-shadow:0 8px 18px rgba(10,55,121,.18);
+}
+.honors-record h3{
+  margin:20px 0 0;
+  color:#082a5a;
+  text-align:center;
+  font-size:clamp(1.6rem,2.2vw,2.2rem);
+  line-height:1.35;
+  letter-spacing:-.045em;
+}
+.honors-record-sep{
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  gap:10px;
+  margin:16px 0 0;
+  color:#c2953b;
+}
+.honors-record-sep::before,
+.honors-record-sep::after{
+  content:"";
+  width:56px;
+  height:1px;
+  background:#d8ba7b;
+}
+.honors-groups{
+  display:grid;
+  gap:16px;
+  margin-top:18px;
+}
+.honors-group{
+  padding:20px 18px;
+  border:1px solid #dfc690;
+  border-radius:20px;
+  background:rgba(255,255,255,.82);
+  text-align:center;
+}
+.honors-group-title{
+  margin:0;
+  color:#bd7d05;
+  font-size:1.45rem;
+  font-weight:950;
+  letter-spacing:-.02em;
+}
+.honors-group-title::before{
+  content:"★";
+  margin-right:8px;
+  color:#cb9a3e;
+  font-size:.9rem;
+  vertical-align:middle;
+}
+.honors-people{
+  display:grid;
+  gap:8px;
+  margin:14px 0 0;
+  padding:0;
+  list-style:none;
+}
+.honors-people li{
+  color:#334b65;
+  font-size:1.18rem;
+  line-height:1.6;
+  font-weight:600;
+}
+.honors-people li::before{
+  content:"◆";
+  margin-right:10px;
+  color:#c29436;
+  font-size:.72rem;
+  vertical-align:middle;
+}
+.honors-record[data-kind="school"] .honors-category{
+  background:#6a7e95;
+}
+.honors-record[data-kind="gifted"] .honors-category{
+  background:#0d7d6f;
+}
+.honors-record[data-kind="fair"] .honors-category{
+  background:#136d8b;
+}
+.honors-record[data-kind="creative"] .honors-category{
+  background:#7a499a;
+}
+.honors-privacy{
+  margin:30px 0 0;
+  padding:17px 19px;
+  border-radius:18px;
+  background:#fff5df;
+  color:#74551e;
+  text-align:center;
+  font-size:.9rem;
+  line-height:1.7;
+}
+@media(max-width:1080px){
+  .honors-summary{grid-template-columns:repeat(3,1fr)}
+  .honors-hero-inner{grid-template-columns:1fr 280px;padding:42px 36px}
+}
+@media(max-width:860px){
+  .honors-hero-inner{grid-template-columns:1fr}
+  .honors-symbol{display:none}
+}
+@media(max-width:720px){
+  .honors-hero{padding-top:14px}
+  .honors-hero-card,
+  .honors-list-panel{border-radius:24px}
+  .honors-hero-inner{padding:28px 18px;min-height:auto}
+  .honors-copy h1{font-size:2.5rem}
+  .honors-copy p{font-size:.98rem}
+  .honors-summary{grid-template-columns:1fr 1fr}
+  .honors-list-panel{padding:24px 14px 30px}
+  .honors-year{margin-top:36px}
+  .honors-record-inner{padding:22px 16px 24px}
+  .honors-record h3{font-size:1.32rem}
+  .honors-group{padding:16px 12px}
+  .honors-group-title{font-size:1.14rem}
+  .honors-people li{font-size:1rem}
+}
+
+
+/* ===== v11 premium winner nameplates ===== */
+.honors-group{
+  position:relative;
+  overflow:hidden;
+  padding:28px 24px 26px;
+  border-width:1px;
+  border-style:solid;
+  border-color:#dbc28b;
+  background:
+    radial-gradient(circle at 50% 0%,rgba(255,245,210,.75),transparent 42%),
+    linear-gradient(180deg,#ffffff 0%,#fffaf0 100%);
+  box-shadow:
+    inset 0 0 0 5px rgba(255,255,255,.82),
+    0 10px 24px rgba(42,57,81,.06);
+  text-align:center;
+}
+.honors-group::before,
+.honors-group::after{
+  content:"";
+  position:absolute;
+  top:18px;
+  width:64px;
+  height:1px;
+  background:linear-gradient(90deg,transparent,#c99a3b);
+}
+.honors-group::before{left:18px}
+.honors-group::after{
+  right:18px;
+  transform:scaleX(-1);
+}
+.honors-group-title{
+  position:relative;
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  min-width:220px;
+  margin:0 auto;
+  padding:12px 30px 13px;
+  border-radius:999px;
+  color:#6e4800;
+  background:linear-gradient(180deg,#fff4c7,#e9c45f);
+  border:1px solid #bd8c2e;
+  box-shadow:
+    inset 0 1px 0 rgba(255,255,255,.8),
+    0 8px 18px rgba(137,91,9,.14);
+  font-size:1.55rem;
+  line-height:1.2;
+  font-weight:950;
+  letter-spacing:-.025em;
+}
+.honors-group-title::before{
+  content:"";
+  width:34px;
+  height:34px;
+  margin-right:11px;
+  border-radius:50%;
+  background:
+    radial-gradient(circle at 35% 30%,#fff6c8 0 15%,transparent 16%),
+    linear-gradient(145deg,#f8dc7e,#ba7c13);
+  box-shadow:inset 0 0 0 3px rgba(255,255,255,.3);
+}
+.honors-group-title::after{
+  content:"AWARD";
+  position:absolute;
+  left:50%;
+  bottom:-21px;
+  transform:translateX(-50%);
+  color:#aa7a25;
+  font-size:.65rem;
+  font-weight:900;
+  letter-spacing:.22em;
+}
+.honors-people{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(210px,1fr));
+  gap:15px;
+  margin:38px auto 0;
+  padding:0;
+  list-style:none;
+}
+.honors-people li::before{
+  display:none;
+}
+.winner-item{
+  position:relative;
+  min-height:132px;
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  justify-content:center;
+  gap:5px;
+  padding:23px 28px 20px;
+  border:1px solid #dfc891;
+  border-radius:18px;
+  background:
+    linear-gradient(135deg,rgba(255,247,221,.72),transparent 48%),
+    #fff;
+  box-shadow:
+    inset 0 0 0 4px rgba(255,252,244,.95),
+    0 8px 18px rgba(47,62,85,.06);
+  text-align:center;
+}
+.winner-item::before{
+  content:"";
+  position:absolute;
+  left:50%;
+  top:13px;
+  width:36px;
+  height:3px;
+  transform:translateX(-50%);
+  border-radius:999px;
+  background:linear-gradient(90deg,transparent,#c7993e,transparent);
+}
+.winner-affiliation{
+  display:block;
+  margin-top:7px;
+  color:#6b7889;
+  font-size:.92rem;
+  line-height:1.35;
+  font-weight:750;
+  letter-spacing:-.02em;
+}
+.winner-name{
+  display:block;
+  color:#082a5a;
+  font-size:1.72rem;
+  line-height:1.25;
+  font-weight:950;
+  letter-spacing:.03em;
+  text-shadow:0 1px 0 #fff;
+}
+.winner-laurel{
+  position:absolute;
+  left:13px;
+  bottom:13px;
+  color:#c89b43;
+  font-size:1.25rem;
+  transform:rotate(-25deg);
+  opacity:.78;
+}
+.winner-laurel-right{
+  left:auto;
+  right:13px;
+  transform:rotate(205deg);
+}
+
+/* Rank-specific medal treatments */
+.honors-group.rank-gold{
+  border-color:#c68c1c;
+  background:
+    radial-gradient(circle at 50% 0%,rgba(255,223,125,.5),transparent 46%),
+    linear-gradient(180deg,#fffdf7,#fff6dc);
+}
+.honors-group.rank-gold .honors-group-title{
+  color:#5f3b00;
+  border-color:#af7711;
+  background:linear-gradient(180deg,#fff1a9,#dca72d);
+}
+.honors-group.rank-gold .winner-item{
+  border-color:#d2a344;
+}
+.honors-group.rank-gold .winner-name{
+  color:#7b4d00;
+}
+
+.honors-group.rank-silver{
+  border-color:#aeb8c7;
+  background:
+    radial-gradient(circle at 50% 0%,rgba(232,239,247,.9),transparent 46%),
+    linear-gradient(180deg,#fff,#f4f7fb);
+}
+.honors-group.rank-silver .honors-group-title{
+  color:#36485f;
+  border-color:#9aa7b8;
+  background:linear-gradient(180deg,#f9fbfd,#bfc9d6);
+}
+.honors-group.rank-silver .winner-item{
+  border-color:#bdc7d3;
+}
+.honors-group.rank-silver .winner-name{
+  color:#203a5c;
+}
+.honors-group.rank-silver .winner-laurel{
+  color:#929eae;
+}
+
+.honors-group.rank-bronze{
+  border-color:#b87948;
+  background:
+    radial-gradient(circle at 50% 0%,rgba(232,188,151,.42),transparent 46%),
+    linear-gradient(180deg,#fffdfb,#f9eee6);
+}
+.honors-group.rank-bronze .honors-group-title{
+  color:#5b321b;
+  border-color:#a66437;
+  background:linear-gradient(180deg,#e8b88d,#b66e3c);
+}
+.honors-group.rank-bronze .winner-item{
+  border-color:#c89978;
+}
+.honors-group.rank-bronze .winner-name{
+  color:#66351c;
+}
+.honors-group.rank-bronze .winner-laurel{
+  color:#aa6d43;
+}
+
+.honors-group.rank-admission{
+  border-color:#60a9a0;
+  background:
+    radial-gradient(circle at 50% 0%,rgba(205,242,236,.65),transparent 46%),
+    linear-gradient(180deg,#ffffff,#edf9f7);
+}
+.honors-group.rank-admission .honors-group-title{
+  color:#fff;
+  border-color:#18786e;
+  background:linear-gradient(180deg,#2d9a8c,#137267);
+}
+.honors-group.rank-admission .winner-item{
+  border-color:#9acdc6;
+}
+.honors-group.rank-admission .winner-name{
+  color:#0b5d56;
+}
+.honors-group.rank-admission .winner-laurel{
+  color:#34988c;
+}
+
+.honors-group.rank-finalist{
+  border-color:#4f78b4;
+  background:
+    radial-gradient(circle at 50% 0%,rgba(214,229,250,.72),transparent 46%),
+    linear-gradient(180deg,#fff,#edf4fe);
+}
+.honors-group.rank-finalist .honors-group-title{
+  color:#fff;
+  border-color:#174d91;
+  background:linear-gradient(180deg,#3274c7,#164b8f);
+}
+.honors-group.rank-finalist .winner-item{
+  border-color:#9db9dc;
+}
+
+.honors-group.rank-school{
+  border-color:#c6cdd6;
+  background:#fafbfd;
+}
+.honors-group.rank-school .honors-group-title{
+  color:#fff;
+  border-color:#66788c;
+  background:linear-gradient(180deg,#8596a8,#637486);
+}
+.honors-group.rank-school .winner-item{
+  border-color:#d0d7df;
+}
+.honors-group.rank-school .winner-name{
+  color:#45596f;
+}
+
+@media(max-width:720px){
+  .honors-group{
+    padding:23px 13px 20px;
+  }
+  .honors-group-title{
+    min-width:0;
+    width:calc(100% - 24px);
+    padding:11px 17px 12px;
+    font-size:1.25rem;
+  }
+  .honors-people{
+    grid-template-columns:1fr;
+    gap:12px;
+    margin-top:35px;
+  }
+  .winner-item{
+    min-height:116px;
+    padding:21px 24px 18px;
+  }
+  .winner-affiliation{
+    font-size:.88rem;
+  }
+  .winner-name{
+    font-size:1.55rem;
+  }
+}
+
+
+/* ===== v12 winner text centering refinement ===== */
+.honors-people{
+  justify-items:center;
+}
+.winner-item{
+  width:100%;
+  max-width:760px;
+  margin:0 auto;
+  align-items:center !important;
+  justify-content:center !important;
+  text-align:center !important;
+}
+.winner-affiliation,
+.winner-name{
+  display:block;
+  width:100%;
+  text-align:center !important;
+  margin-left:auto;
+  margin-right:auto;
+}
+.winner-affiliation{
+  margin-top:4px;
+  color:#738093;
+  font-size:1.08rem;
+  line-height:1.45;
+  font-weight:800;
+  letter-spacing:-.015em;
+}
+.winner-name{
+  margin-top:4px;
+  color:#0a2c5c;
+  font-size:1.62rem;
+  line-height:1.28;
+  font-weight:950;
+  letter-spacing:.01em;
+}
+@media(max-width:720px){
+  .winner-item{
+    max-width:none;
+  }
+  .winner-affiliation{
+    font-size:1rem;
+  }
+  .winner-name{
+    font-size:1.46rem;
+  }
+}
+
+
+/* ===== v13 spaced school and winner typography ===== */
+.winner-item{
+  min-height:170px;
+  padding:25px 30px 23px;
+  gap:5px;
+}
+.winner-meta{
+  display:block;
+  width:100%;
+  color:#8995a5;
+  font-size:.83rem;
+  line-height:1.3;
+  font-weight:800;
+  text-align:center;
+  letter-spacing:.08em;
+}
+.winner-school{
+  display:block;
+  width:100%;
+  margin-top:6px;
+  color:#52667e;
+  font-size:1.18rem;
+  line-height:1.45;
+  font-weight:900;
+  text-align:center;
+  letter-spacing:.08em;
+  word-spacing:.18em;
+}
+.winner-name{
+  display:block;
+  width:100%;
+  margin-top:10px;
+  color:#082a5a;
+  font-size:1.82rem;
+  line-height:1.28;
+  font-weight:950;
+  text-align:center;
+  letter-spacing:0;
+  white-space:nowrap;
+}
+.honors-group.rank-gold .winner-school,
+.honors-group.rank-gold .winner-name{
+  color:#744800;
+}
+.honors-group.rank-silver .winner-school,
+.honors-group.rank-silver .winner-name{
+  color:#2e4665;
+}
+.honors-group.rank-bronze .winner-school,
+.honors-group.rank-bronze .winner-name{
+  color:#67391f;
+}
+.honors-group.rank-admission .winner-school,
+.honors-group.rank-admission .winner-name{
+  color:#0c5f58;
+}
+.honors-group.rank-school .winner-school,
+.honors-group.rank-school .winner-name{
+  color:#485c72;
+}
+@media(max-width:720px){
+  .winner-item{
+    min-height:150px;
+    padding:22px 18px 20px;
+  }
+  .winner-meta{
+    font-size:.78rem;
+  }
+  .winner-school{
+    font-size:1.02rem;
+    letter-spacing:.04em;
+    word-spacing:.08em;
+  }
+  .winner-name{
+    font-size:1.62rem;
+  }
+}
