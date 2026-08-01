@@ -727,3 +727,116 @@ button{font:inherit}
     min-height:260px;
   }
 }
+
+
+/* ===== v6 contact & location ===== */
+.location-section{
+  padding:22px 0;
+  background:#f5f8fc;
+}
+.location-card{
+  overflow:hidden;
+  display:grid;
+  grid-template-columns:.8fr 1.2fr;
+  border:1px solid var(--line);
+  border-radius:28px;
+  background:#fff;
+  box-shadow:var(--shadow);
+}
+.location-info{
+  display:flex;
+  flex-direction:column;
+  justify-content:center;
+  padding:34px 30px;
+}
+.location-info .section-kicker{margin-bottom:8px}
+.location-info h2{
+  margin:0;
+  color:var(--navy-deep);
+  font-size:clamp(1.8rem,3vw,2.7rem);
+  line-height:1.2;
+  letter-spacing:-.05em;
+}
+.contact-list{
+  display:grid;
+  gap:13px;
+  margin-top:24px;
+}
+.contact-row{
+  display:flex;
+  align-items:flex-start;
+  gap:13px;
+}
+.contact-row .contact-icon{
+  width:42px;
+  height:42px;
+  flex:0 0 42px;
+  display:grid;
+  place-items:center;
+  border-radius:14px;
+  background:#edf5ff;
+  font-size:1.25rem;
+}
+.contact-row strong{
+  display:block;
+  color:var(--navy-deep);
+}
+.contact-row a,
+.contact-row span{
+  display:block;
+  color:#52667e;
+  font-size:.95rem;
+}
+.location-actions{
+  display:flex;
+  flex-wrap:wrap;
+  gap:10px;
+  margin-top:24px;
+}
+.location-actions .btn{min-height:46px}
+.btn-naver{
+  background:#03c75a;
+  color:#fff;
+}
+.btn-naver:hover{background:#02ad4e}
+.map-wrap{
+  position:relative;
+  min-height:430px;
+  background:#eaf0f6;
+}
+.map-wrap iframe{
+  width:100%;
+  height:100%;
+  min-height:430px;
+  border:0;
+}
+.map-badge{
+  position:absolute;
+  right:12px;
+  bottom:12px;
+  z-index:3;
+  padding:7px 10px;
+  border-radius:999px;
+  background:rgba(8,42,90,.82);
+  color:#fff;
+  font-size:.72rem;
+  font-weight:800;
+  backdrop-filter:blur(6px);
+}
+.footer a{color:inherit}
+.footer .contact-link-text{
+  color:var(--navy);
+  font-weight:800;
+}
+@media(max-width:860px){
+  .location-card{grid-template-columns:1fr}
+  .map-wrap,.map-wrap iframe{min-height:360px}
+}
+@media(max-width:720px){
+  .location-section{padding:14px 0}
+  .location-card{border-radius:24px}
+  .location-info{padding:24px 18px}
+  .location-actions{display:grid}
+  .location-actions .btn{width:100%}
+  .map-wrap,.map-wrap iframe{min-height:310px}
+}
